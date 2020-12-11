@@ -13,7 +13,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace>
     </RootNamespace>
-    <ProjectGuid>{65528C89-C18C-1041-7B5C-BDF8BB1BE4F5}</ProjectGuid>
+    <ProjectGuid>{48C792FE-03DF-02E7-A4BE-10B4B5E95AA2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -57,18 +57,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\movimientoplayer.cs" />
+    <Compile Include="Assets\script\movimientoplayer.cs" />
     <None Include="Assets\Sprites\gothicvania-cemetery-files\public-license.txt" />
     <None Include="Assets\Sprites\perro fantasma\public-license.txt" />
     <None Include="Assets\Sprites\parallax_mountain_pack\license.txt" />
-    <None Include="Assets\Sprites\explosiones\license.txt" />
-    <None Include="Assets\Sprites\soldadoenemigo\License.txt" />
-    <None Include="Assets\Sprites\Grotto-escape-2-boss-dragon\patreon-license.txt" />
     <None Include="Assets\Sprites\cueva\public-license.txt" />
-    <None Include="Assets\Sprites\mago boss\License.txt" />
     <None Include="Assets\Sprites\acantilado\public-license.txt" />
     <None Include="Assets\Sprites\GothicVania-town-files\Music\readme.txt" />
-    <None Include="Assets\Sprites\warped-files\public-license.txt" />
     <None Include="Assets\Sprites\GothicVania-town-files\public-license.txt" />
     <None Include="Assets\Sprites\criaturas del bosque\sunny-dragon\Sunny-land-forest-files\public-license.txt" />
     <None Include="Assets\Sprites\camino dia\license.txt" />
@@ -604,31 +599,34 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.14f1/Editor/Data/NetStandard/compat/2.0.0/shims/netfx/System.Xml.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/revelion5/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/seguroqueahorasi/rebelion5/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/revelion5/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/seguroqueahorasi/rebelion5/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/revelion5/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/seguroqueahorasi/rebelion5/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/revelion5/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/seguroqueahorasi/rebelion5/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/revelion5/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/seguroqueahorasi/rebelion5/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/revelion5/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/seguroqueahorasi/rebelion5/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/revelion5/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/seguroqueahorasi/rebelion5/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.2D.Sprite.Editor">
+      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/seguroqueahorasi/rebelion5/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/revelion5/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/seguroqueahorasi/rebelion5/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/revelion5/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/alvar/OneDrive/Documentos/GitHub/seguroqueahorasi/rebelion5/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
