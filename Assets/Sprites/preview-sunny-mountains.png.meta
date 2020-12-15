@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: 6c4129d956e4222429c9d17f2e598bc8
+guid: 143e85812919d6c41bee1494cde0d9ae
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 1729436631487412639
+    second: preview-sunny-mountains_0
+  - first:
+      213: 2789214263472201543
+    second: preview-sunny-mountains_1
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -85,11 +91,53 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: preview-sunny-mountains_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 42
+        width: 127
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f99fa511471300810800000000000000
+      internalID: 1729436631487412639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: preview-sunny-mountains_1
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 9
+        width: 160
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74f96b0489745b620800000000000000
+      internalID: 2789214263472201543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: beaaad18b829ff54a8bc0c4823110246
     internalID: 0
     vertices: []
     indices: 
