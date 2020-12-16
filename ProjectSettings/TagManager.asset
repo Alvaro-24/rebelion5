@@ -6,6 +6,9 @@ TagManager:
   tags:
   - plataforma
   - pinchos
+  - corte
+  - boladefuego
+  - rayo
   layers:
   - Default
   - TransparentFX
