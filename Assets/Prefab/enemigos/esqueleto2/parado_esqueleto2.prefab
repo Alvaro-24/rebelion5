@@ -150,7 +150,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07325891, y: 0.011200026}
+  m_Offset: {x: 0.074221015, y: -0.0041935593}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -161,7 +161,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.49821597, y: 0.54136884}
+  m_Size: {x: 0.4539594, y: 0.51058173}
   m_EdgeRadius: 0
 --- !u!61 &8099925231693231719
 BoxCollider2D:
@@ -176,7 +176,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.07675223, y: 0.012638465}
+  m_Offset: {x: 0.059434414, y: -0.0037172288}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -187,7 +187,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.49821576, y: 0.5442455}
+  m_Size: {x: 0.16340542, y: 0.5115341}
   m_EdgeRadius: 0
 --- !u!50 &8099925231693231718
 Rigidbody2D:
@@ -204,7 +204,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -226,6 +226,8 @@ MonoBehaviour:
   speed: 1
   distanciaseseguimiento: 18
   distanciaplayer: 0
+  CDataque1: 0
+  CDatque2: 0
   CDnodamage: 0
   muertefuego: {fileID: 2919542261846467091, guid: 114e6e53058a44d47af02df9a5ffdd6a,
     type: 3}
