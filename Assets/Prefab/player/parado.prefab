@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &358642681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 358642682}
+  m_Layer: 0
+  m_Name: spawn_scudo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &358642682
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358642681}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.08, y: -0.18, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
+  m_Children: []
+  m_Father: {fileID: 292815251215968293}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &292815251215969240
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +44,7 @@ GameObject:
   - component: {fileID: 292815251215968290}
   - component: {fileID: 292815251215968291}
   - component: {fileID: 292815251215968292}
+  - component: {fileID: 1341290703}
   m_Layer: 0
   m_Name: parado
   m_TagString: Untagged
@@ -31,7 +62,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 358642682}
+  - {fileID: 6697481392623940753}
+  - {fileID: 8308780539160281828}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -178,3 +212,228 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1341290703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292815251215969240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de3cfb0d316d9644e983210a3d84cf1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  camarapueblo1: {fileID: 0}
+  respawn1: {fileID: 0}
+  camarapueblo2: {fileID: 0}
+  respawn2: {fileID: 0}
+  camaracamino: {fileID: 0}
+  respawn3: {fileID: 0}
+  camaraclaro: {fileID: 0}
+  respawn4: {fileID: 0}
+  camarabosqueverde: {fileID: 0}
+  respawn5: {fileID: 0}
+  camarabosqueniebla: {fileID: 0}
+  respawn6: {fileID: 0}
+  camarabosqueoscuro: {fileID: 0}
+  respawn7: {fileID: 0}
+  camaracementerio: {fileID: 0}
+  respawn8: {fileID: 0}
+  camaracripta: {fileID: 0}
+  respawn9: {fileID: 0}
+  camaracueva: {fileID: 0}
+  respawn10: {fileID: 0}
+  camaraacantilado: {fileID: 0}
+  respawn11: {fileID: 0}
+  "camaracaminomonta\xF1a": {fileID: 0}
+  respawn12: {fileID: 0}
+  camaracastillofondo: {fileID: 0}
+  respawn13: {fileID: 0}
+  camaracastillo: {fileID: 0}
+  respawn14: {fileID: 0}
+  camaraboss: {fileID: 0}
+  respawn15: {fileID: 0}
+  maxXpueblo1: 0
+  maxYpueblo1: 0
+  minXpueblo1: 0
+  minYpueblo1: 0
+  Xpueblo1: 0
+  Ypueblo1: 0
+  maxXpueblo2: 0
+  maxYpueblo2: 0
+  minXpueblo2: 0
+  minYpueblo2: 0
+  Xpueblo2: 0
+  Ypueblo2: 0
+  maxXcamino: 0
+  minXcamino: 0
+  maxYcamino: 0
+  minYcamino: 0
+  Xcamino: 0
+  Ycamino: 0
+  maxXClaro: 0
+  minXclaro: 0
+  maxYclaro: 0
+  minYclaro: 0
+  Xclaro: 0
+  Yclaro: 0
+  maxXbosqueverde: 0
+  minXbosqueverde: 0
+  maxYbosqueverde: 0
+  minYbosqueverde: 0
+  Xbosqueverde: 0
+  Ybosqueverde: 0
+  maxXbosqueniebla: 0
+  minXbosniebla: 0
+  maxYbosniebla: 0
+  minYbosqueniebla: 0
+  Xbosqueniebla: 0
+  Ybosqueniebla: 0
+  maxXbosqueoscuro: 0
+  minXbosqueoscuro: 0
+  maxYbososcuro: 0
+  minYbosqueoscuro: 0
+  Xbosqueoscuro: 0
+  Ybosqueoscuro: 0
+  maxXcementerio: 0
+  minXcementerio: 0
+  maxYcementerio: 0
+  minYcementerio: 0
+  Xcementerio: 0
+  Ycementerio: 0
+  maxXcripta: 0
+  minXcripta: 0
+  maxYcripta: 0
+  minYcripta: 0
+  Xcripta: 0
+  Ycripta: 0
+  maxXcueva: 0
+  minXcueva: 0
+  maxYcueva: 0
+  minYcueva: 0
+  Xcueva: 0
+  Ycueva: 0
+  maxXacantilado: 0
+  minXacantilado: 0
+  maxYacantilado: 0
+  minYacantilado: 0
+  Xacantilado: 0
+  Yacantilado: 0
+  "maxXcaminomonta\xF1a": 0
+  "minXcaminomonta\xF1a": 0
+  "maxYcaminomonta\xF1a": 0
+  "minYcaminomonta\xF1a": 0
+  "Xcaminomonta\xF1a": 0
+  "Ycaminomonta\xF1a": 0
+  maxXcastillofondo: 0
+  minXcastillofondo: 0
+  maxYcastillofondo: 0
+  minYcastillofondo: 0
+  Xcastillofondo: 0
+  Ycastillofondo: 0
+  maxXcastillo: 0
+  minXcastillo: 0
+  maxYcastillo: 0
+  minYcastillo: 0
+  Xcastillo: 0
+  Ycastillo: 0
+  maxXboss: 0
+  minXboss: 0
+  maxYboss: 0
+  minYboss: 0
+  Xboss: 0
+  Yboss: 0
+  escudo: 0
+  ataque1: 0
+  ataque2: 0
+  ataque3: 0
+  ataque4: 0
+  CDataque1: 2
+  CDataque2: 2
+  CDataque3: 15
+  CDataque4: 20
+  CDescudo: 0
+  CDnodamage: 3
+  currentCDnodamage: 0
+  escudos: {fileID: 1556057628337689732, guid: 72a1bc923dc503f42b177c3e121b4a17, type: 3}
+  spawnescudo: {fileID: 358642681}
+  boladefuego: {fileID: 7574085528612297947, guid: 5d5ce54f0f514a74f9adab8751c5b2f5,
+    type: 3}
+  spawnboladefuego: {fileID: 1865517636538166986}
+  atquecircular: {fileID: 6664287479548322284, guid: 5fec95f57daba4f4ea44531ccd03c5ae,
+    type: 3}
+  spawnatquecircular: {fileID: 393873908973899617}
+  rayo: {fileID: 827622789771066488, guid: 39923dce572406449a4af6909a933c84, type: 3}
+  CDrevivir: 2
+  currentCDrevivir: 0
+  jumpforce: 9.8
+  salto: {fileID: 292815251215968292}
+  cameradistance: 0
+  vida: 100
+  score: 0
+  espadazo: 100
+  tajo: 75
+  fuego: 150
+  relanpago: 50
+--- !u!1 &393873908973899617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8308780539160281828}
+  m_Layer: 0
+  m_Name: spaun_ataque_circular
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8308780539160281828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393873908973899617}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.475, y: 0.004, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
+  m_Children: []
+  m_Father: {fileID: 292815251215968293}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1865517636538166986
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6697481392623940753}
+  m_Layer: 0
+  m_Name: spaun_bola_fuego
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6697481392623940753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865517636538166986}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.42, y: -0.145, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
+  m_Children: []
+  m_Father: {fileID: 292815251215968293}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

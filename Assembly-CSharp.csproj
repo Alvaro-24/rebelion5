@@ -55,7 +55,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\script\movimientoboss.cs" />
+     <Compile Include="Assets\script\movimientodragon.cs" />
+     <Compile Include="Assets\script\movimientoesqueleto1.cs" />
+     <Compile Include="Assets\script\movimientoesqueletoinbocado.cs" />
+     <Compile Include="Assets\script\movimientogato.cs" />
+     <Compile Include="Assets\script\movimientogeneral.cs" />
+     <Compile Include="Assets\script\movimientogoblin.cs" />
+     <Compile Include="Assets\script\movimientoladron.cs" />
+     <Compile Include="Assets\script\movimientolich.cs" />
+     <Compile Include="Assets\script\movimientoojovolador.cs" />
      <Compile Include="Assets\script\movimientoplayer.cs" />
+     <Compile Include="Assets\script\movimientoseta.cs" />
+     <Compile Include="Assets\script\movimientosetarara.cs" />
+     <Compile Include="Assets\script\movimientosetararaboss.cs" />
+     <Compile Include="Assets\script\movimientosoldado.cs" />
+     <Compile Include="Assets\script\movimientosoldadoboss.cs" />
+     <Compile Include="Assets\script\spawenemigos.cs" />
      <None Include="Assets\Sprites\gothicvania-cemetery-files\public-license.txt" />
      <None Include="Assets\Sprites\perro fantasma\public-license.txt" />
      <None Include="Assets\Sprites\parallax_mountain_pack\license.txt" />

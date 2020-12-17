@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1045891134671734788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6780893078586054764}
+  m_Layer: 0
+  m_Name: spawn_fuego
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6780893078586054764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045891134671734788}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.07333326, y: -0.17, z: 0}
+  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 0}
+  m_Children: []
+  m_Father: {fileID: 7565293261460160157}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7565293261460160154
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +44,7 @@ GameObject:
   - component: {fileID: 8497029165786205872}
   - component: {fileID: 906765449856984735}
   - component: {fileID: 8973656175353524752}
+  - component: {fileID: 1948582488781132385}
   m_Layer: 0
   m_Name: aparicion_esqueleto1
   m_TagString: Untagged
@@ -31,7 +62,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.55, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 6780893078586054764}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -177,3 +209,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.44, y: 0.52}
   m_EdgeRadius: 0
+--- !u!114 &1948582488781132385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7565293261460160154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 680531b8558e6ae4c8e0d76bb9bd5188, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  speed: 1
+  distanciaseseguimiento: 18
+  muertefuego: {fileID: 2919542261846467091, guid: 114e6e53058a44d47af02df9a5ffdd6a,
+    type: 3}
+  spawnfuego: {fileID: 1045891134671734788}
+  salto: {fileID: 0}
