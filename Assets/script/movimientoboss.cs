@@ -50,6 +50,7 @@ public class movimientoboss : MonoBehaviour
         giro = this.GetComponent<SpriteRenderer>();
         int posicion = Random.Range(0, posicionbatalla2.Length);
         this.transform.position = posicionbatalla2[posicion].transform.position;
+        controlanimaciones = GetComponent<Animator>();
     }
 
     // Update is called once per frame

@@ -29,6 +29,7 @@ public class movimientodragon : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoplayer>();
         giro = this.GetComponent<SpriteRenderer>();
+        controlanimaciones = GetComponent<Animator>();
 
     }
     // Update is called once per frame
@@ -42,11 +43,11 @@ public class movimientodragon : MonoBehaviour
             controlanimaciones.SetBool("correr", true);
             if (player.transform.position.x > this.transform.position.x)
             {
-                giro.flipX = false;
+                giro.flipX = true;
             }
             else if (player.transform.position.x < this.transform.position.x)
             {
-                giro.flipX = true;
+                giro.flipX = false;
             }
             else
             {

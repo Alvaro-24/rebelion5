@@ -26,6 +26,7 @@ public class movimientosoldadoboss : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoplayer>();
         giro = this.GetComponent<SpriteRenderer>();
+        controlanimaciones = GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()

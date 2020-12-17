@@ -18,6 +18,7 @@ public class movimientogato : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoplayer>();
         giro = this.GetComponent<SpriteRenderer>();
+
     }
     // Update is called once per frame
     void Update()
@@ -25,7 +26,6 @@ public class movimientogato : MonoBehaviour
         if (Vector3.Distance(this.transform.position, player.transform.position) < distanciaseseguimiento)
         {
             this.transform.position = Vector3.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-            controlanimaciones.SetBool("correr", true);
             if (player.transform.position.x > this.transform.position.x)
             {
                 giro.flipX = false;
@@ -34,22 +34,10 @@ public class movimientogato : MonoBehaviour
             {
                 giro.flipX = true;
             }
-            else
-            {
-                controlanimaciones.SetBool("correr", false);
-            }
-
+           
             if (currentCDfuego > 0)
             {
                 currentCDfuego -= Time.deltaTime;
-            }
-            if (salto.velocity.y < -0.2f)
-            {
-                controlanimaciones.SetBool("caida", true);
-            }
-            else
-            {
-                controlanimaciones.SetBool("caida", false);
             }
         }
 

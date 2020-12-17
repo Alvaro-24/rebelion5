@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class movimientoplayer : MonoBehaviour
 {
+    SpriteRenderer giro;
     public float speed;
     Vector2 mousePosition;
     //camaras
@@ -71,7 +72,7 @@ public class movimientoplayer : MonoBehaviour
     public float Xcastillo, Ycastillo;
     public float maxXboss, minXboss, maxYboss, minYboss;
     public float Xboss, Yboss;
-    bool posicionpueblo1 = false;
+    bool posicionpueblo1 = true;
     bool posicionpueblo2 = false;
     bool posicioncamino = false;
     bool posicionclaro = false;
@@ -146,6 +147,7 @@ public class movimientoplayer : MonoBehaviour
     void Start()
     {
         controlanimaciones = GetComponent<Animator>();
+        giro = GetComponent<SpriteRenderer>();
         
 
 
@@ -154,6 +156,7 @@ public class movimientoplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        movimiento();
         if (posicionpueblo1 == true)
         {
             movimiento();
@@ -550,11 +553,13 @@ public class movimientoplayer : MonoBehaviour
         {
             controlanimaciones.SetBool("correr", true);
             transform.position += Vector3.right * speed * Time.deltaTime;
+            giro.flipX = false;
         }
         else if (Input.GetAxis("Horizontal") < -0.5f)
         {
             controlanimaciones.SetBool("correr", true);
             transform.position += Vector3.left * speed * Time.deltaTime;
+            giro.flipX = true;
         }
         else
         {
@@ -586,7 +591,6 @@ public class movimientoplayer : MonoBehaviour
             Instantiate(escudos, spawnescudo.transform.position, escudos.transform.rotation);
             CDescudo = currentCDescudo;
         }
-        RotatePlayerAlongMousePosition();
         if (ataque2 == true)
         {
             controlanimaciones.SetTrigger("ataque1");
@@ -634,13 +638,5 @@ public class movimientoplayer : MonoBehaviour
         }
 
     }
-    void RotatePlayerAlongMousePosition()
-    {
-
-        mousePosition = camaraactual.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Input.mousePosition.z - camaraactual.transform.position.z));
-
-        //Rotates toward the mouse
-        transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2((mousePosition.y - transform.position.y), (mousePosition.x - transform.position.x)) * Mathf.Rad2Deg);
-
-    }
+  
 }

@@ -30,6 +30,7 @@ public class movimientoesqueleto1 : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoplayer>();
         giro = this.GetComponent<SpriteRenderer>();
+        controlanimaciones = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -105,13 +106,8 @@ public class movimientoesqueleto1 : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("player"))
-        {
-            if (ataque1 == true)
-            {
-                player.controlvida(15);
-            }
-        }
+       
+      
         if (collision.gameObject.CompareTag("boladefuego"))
         {
             Destroy(collision.gameObject);
@@ -143,5 +139,29 @@ public class movimientoesqueleto1 : MonoBehaviour
             player.controlscore(40);
         }
     }
-   
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            print("entrocolision");
+            if (player.ataque1 == true)
+            {
+                print("detectoataque");
+                Destroy(this.gameObject, 2);
+                controlanimaciones.SetBool("muerto", true);
+                controlanimaciones.SetTrigger("muerte");
+                player.controlscore(80);
+            }
+
+        }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (ataque1 == true)
+            {
+                player.controlvida(15);
+            }
+        }
+    }
+
+
 }

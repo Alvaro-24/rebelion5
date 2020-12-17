@@ -19,6 +19,7 @@ public class movimientoesqueletoinbocado : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<movimientoplayer>();
         giro = this.GetComponent<SpriteRenderer>();
+        controlanimaciones = GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
