@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class movimientolich : MonoBehaviour
 {
+    public Rigidbody2D damage1;
+    public float jumpforce1;
+    public GameObject spaun_damage;
+    public GameObject damagesufrido;
     public GameObject[] invocaiones;
     public GameObject[] spawns;
     Animator controlanimaciones;

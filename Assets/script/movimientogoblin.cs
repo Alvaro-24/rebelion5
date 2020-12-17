@@ -16,7 +16,6 @@ public class movimientogoblin : MonoBehaviour
     public float CDatque2;
     float currentCdataque2;
     Animator controlanimaciones;
-    int vida = 3;
     public float CDnodamage;
     float currentCDnodamage = 0;
     public GameObject muertefuego;
@@ -74,13 +73,13 @@ public class movimientogoblin : MonoBehaviour
             }
 
         }
-        if (currentCDnodamage > 0)
+        if (currentCDataque1 > 0)
         {
-            currentCDnodamage -= Time.deltaTime;
+            currentCDataque1 -= Time.deltaTime;
         }
-        if (currentCDnodamage <= 0)
+        if (currentCdataque2 <= 0)
         {
-            currentCDnodamage = CDnodamage;
+            currentCdataque2 -= Time.deltaTime;
         }
         if (currentCDfuego > 0)
         {
@@ -97,23 +96,8 @@ public class movimientogoblin : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((player.escudo == false) && (player.currentCDnodamage <= 0))
-        {
-            if (collision.gameObject.CompareTag("player"))
-            {
-                if (ataque1 == true)
-                {
-                    player.controlvida(15);
-                }
-                if (ataque2 == true)
-                {
-                    player.controlscore(15);
-                }
-            }
-        }
-        if (currentCDnodamage <= 0)
-        {
-            if (collision.gameObject.CompareTag("boladefuego"))
+       
+       if (collision.gameObject.CompareTag("boladefuego"))
             {
                 Destroy(collision.gameObject);
                 GameObject muerte = Instantiate(muertefuego, spawnfuego.transform.position, muertefuego.transform.rotation);
@@ -128,30 +112,39 @@ public class movimientogoblin : MonoBehaviour
             if (collision.gameObject.CompareTag("corte"))
             {
                 Destroy(collision.gameObject);
-                controlvida(1);
+                Destroy(this.gameObject);
             }
             if (collision.gameObject.CompareTag("rayo"))
             {
-                controlvida(2);
+                Destroy(this.gameObject);
+            }
+
+
+    }
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("player"))
+        {
+            if (player.ataque1 == true)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+        if ((player.escudo == false) && (player.currentCDnodamage <= 0))
+        {
+            if (collision.gameObject.CompareTag("player"))
+            {
+                if (ataque1 == true)
+                {
+                    player.controlvida(15);
+                }
+                if (ataque2 == true)
+                {
+                    player.controlscore(15);
+                }
             }
         }
 
+    }
 
-    }
-    public void controlvida(int damage)
-    {
-        if (vida > 0)
-        {
-            vida = vida - damage;
-            CDnodamage = currentCDnodamage;
-            controlanimaciones.SetTrigger("recibir_golpe");
-        }
-        if (vida <= 0)
-        {
-            Destroy(this.gameObject, 2);
-            controlanimaciones.SetBool("muerto", true);
-            controlanimaciones.SetTrigger("muerte");
-            player.controlscore(30);
-        }
-    }
 }

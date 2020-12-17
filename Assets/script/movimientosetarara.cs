@@ -16,7 +16,7 @@ public class movimientosetarara : MonoBehaviour
     public float CDatque2;
     float currentCdataque2;
     Animator controlanimaciones;
-    int vida = 3;
+    int vida = 1;
     public float CDnodamage;
     float currentCDnodamage = 0;
     public GameObject muertefuego;
@@ -97,20 +97,7 @@ public class movimientosetarara : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((player.escudo == false) && (player.currentCDnodamage <= 0))
-        {
-            if (collision.gameObject.CompareTag("player"))
-            {
-                if (ataque1 == true)
-                {
-                    player.controlvida(15);
-                }
-                if (ataque2 == true)
-                {
-                    player.controlscore(15);
-                }
-            }
-        }
+       
         if (currentCDnodamage <= 0)
         {
             if (collision.gameObject.CompareTag("boladefuego"))
@@ -137,6 +124,35 @@ public class movimientosetarara : MonoBehaviour
         }
         
        
+    }
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (currentCDnodamage <= 0)
+        {
+            if (collision.gameObject.CompareTag("player"))
+            {
+                if (player.ataque1 == true)
+                {
+                    controlvida(1);
+                }
+            }
+
+        }
+        if ((player.escudo == false) && (player.currentCDnodamage <= 0))
+        {
+            if (collision.gameObject.CompareTag("player"))
+            {
+                if (ataque1 == true)
+                {
+                    player.controlvida(15);
+                }
+                if (ataque2 == true)
+                {
+                    player.controlscore(15);
+                }
+            }
+        }
+
     }
     public void controlvida(int damage)
     {

@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class movimientoplayer : MonoBehaviour
 {
+    public GameObject rey;
+    public GameObject spaun_damage;
+    public GameObject damagesufrido;
     SpriteRenderer giro;
     public float speed;
     Vector2 mousePosition;
@@ -126,7 +129,9 @@ public class movimientoplayer : MonoBehaviour
     public float currentCDrevivir;
 
     public float jumpforce;
+    public float jumpforce1;
     public Rigidbody2D salto;
+    public Rigidbody2D damage1;
     public float cameradistance;
     bool paredderecha = false;
     bool paredizquierda = false;
@@ -290,6 +295,10 @@ public class movimientoplayer : MonoBehaviour
         if (nivel >= 20)
         {
             vida = 300;
+            rey.SetActive(true);
+            rey.transform.SetParent(null);
+            this.gameObject.SetActive(false);
+
         }
         else if (nivel >= 15)
         {
@@ -410,6 +419,20 @@ public class movimientoplayer : MonoBehaviour
         vida = vida - damage;
         CDnodamage = currentCDnodamage;
         controlanimaciones.SetTrigger("recibir_golpe");
+        GameObject damaget = Instantiate(damagesufrido, spaun_damage.transform.position, damagesufrido.transform.rotation);
+        damaget.GetComponentInChildren<Text>().text = "-" + damage;
+
+        damage1.AddForce(new Vector2(0, jumpforce1), ForceMode2D.Impulse);
+        if (paredderecha == true)
+        {
+            damage1.AddForce(new Vector2(-2.5f, jumpforce1), ForceMode2D.Impulse);
+            giro.flipX = false;
+        }
+        if (paredizquierda == true)
+        {
+            damage1.AddForce(new Vector2(2.5f, jumpforce1), ForceMode2D.Impulse);
+            giro.flipX = true;
+        }
         if (vida <= 0)
         {
             controlanimaciones.SetTrigger("muerte");
@@ -418,6 +441,7 @@ public class movimientoplayer : MonoBehaviour
             if (currentCDrevivir <= 0)
             {
                 this.transform.position = espaumactual.transform.position;
+                controlanimaciones.SetBool("muerto", false);
             }
            
         }

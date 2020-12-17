@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class movimientoboss : MonoBehaviour
 {
+    public Rigidbody2D damage1;
+    public float jumpforce1;
+
+    public GameObject spaun_damage;
+    public GameObject damagesufrido;
     public float speed;
     public movimientoplayer player;
     public float distanciaseseguimiento;
@@ -13,10 +20,10 @@ public class movimientoboss : MonoBehaviour
     bool ataque2 = false;
     public float CDataque1;
     public float CDataque2;
-  
+
     float currentCDataque1;
     float currentCDataque2;
-  
+
     public GameObject cortefuego;
     public GameObject spawncorte;
     public GameObject[] bosses;
@@ -42,7 +49,7 @@ public class movimientoboss : MonoBehaviour
 
     float CDposicionbatalla = 10;
     float currentCDposicionbatalla;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,9 +82,9 @@ public class movimientoboss : MonoBehaviour
             {
                 controlanimaciones.SetTrigger("ataque2");
                 enemigo1_0 = Instantiate(bosses[1], spawnbosses.transform.position, bosses[0].transform.rotation);
-                enemigo1 = true; 
+                enemigo1 = true;
             }
-           
+
             if (enemigo1_0 == null)
             {
                 if (currentCDposicionbatalla <= 0)
@@ -85,7 +92,7 @@ public class movimientoboss : MonoBehaviour
                     controlmago();
                 }
             }
-            else 
+            else
             {
 
                 this.transform.position = Vector3.MoveTowards(this.transform.position, sitioespera.transform.position, speed * Time.deltaTime);
@@ -145,11 +152,11 @@ public class movimientoboss : MonoBehaviour
         if (currentCDataque1 > 0)
         {
             currentCDataque1 -= Time.deltaTime;
-        } 
+        }
         if (currentCDataque2 > 0)
         {
             currentCDataque2 -= Time.deltaTime;
-        } 
+        }
         if (currentCDposicionbatalla > 0)
         {
             currentCDposicionbatalla -= Time.deltaTime;
@@ -176,6 +183,19 @@ public class movimientoboss : MonoBehaviour
             vida = vida - damage;
             CDnodamage = currentCDnodamage;
             controlanimaciones.SetTrigger("recibir_golpe");
+            GameObject damaget = Instantiate(damagesufrido, spaun_damage.transform.position, damagesufrido.transform.rotation);
+            damaget.GetComponentInChildren<Text>().text = "-" + damage;
+            damage1.AddForce(new Vector2(0, jumpforce1), ForceMode2D.Impulse);
+            if (this.transform.position == player.transform.position)
+            {
+                damage1.AddForce(new Vector2(-2.5f, jumpforce1), ForceMode2D.Impulse);
+                giro.flipX = false;
+            }
+            if (this.transform.position != player.transform.position)
+            {
+                damage1.AddForce(new Vector2(2.5f, jumpforce1), ForceMode2D.Impulse);
+                giro.flipX = true;
+            }
         }
         if (vida <= 0)
         {
@@ -217,6 +237,23 @@ public class movimientoboss : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
+
+
+    }
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (currentCDnodamage <= 0)
+        {
+            if (collision.gameObject.CompareTag("player"))
+            {
+                if (player.ataque1 == true)
+                {
+                    controlvida(player.espadazo);
+                }
+            }
+
+        }
+
         if (collision.gameObject.CompareTag("player"))
         {
             if ((player.escudo == false) && (player.currentCDnodamage <= 0))
@@ -231,6 +268,5 @@ public class movimientoboss : MonoBehaviour
                 }
             }
         }
-        
     }
 }

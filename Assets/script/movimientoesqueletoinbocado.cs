@@ -54,7 +54,7 @@ public class movimientoesqueletoinbocado : MonoBehaviour
                 controlanimaciones.SetBool("caida", false);
             }
         }
-       
+
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -87,8 +87,23 @@ public class movimientoesqueletoinbocado : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-   
-    
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("player"))
+        {
+            if (player.ataque1 == true) 
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
+    }
+
+
+
 }
+
+
+
 
 

@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class movimientosetararaboss : MonoBehaviour
 {
+    public Rigidbody2D damage1;
+    public float jumpforce1;
+    public GameObject spaun_damage;
+    public GameObject damagesufrido;
     public movimientoplayer player;
     public float speed;
     public float distanciaseseguimiento;
@@ -108,15 +113,7 @@ public class movimientosetararaboss : MonoBehaviour
     {
         if (currentCDnodamage <= 0)
         {
-            if (collision.gameObject.CompareTag("player"))
-            {
-                if (player.ataque1 == true)
-                {
-                    controlvida(player.espadazo);
-                }
-
-
-            }
+           
             if (collision.gameObject.CompareTag("boladefuego"))
             {
                 controlvida(player.fuego);
@@ -138,17 +135,7 @@ public class movimientosetararaboss : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
-        if (collision.gameObject.CompareTag("player"))
-        {
-            if (ataque1 == true)
-            {
-                player.controlvida(5);
-            }
-            if (ataque2 == true)
-            {
-                player.controlvida(15);
-            }
-        }
+       
        
     }
     public void controlvida(int damage)
@@ -158,6 +145,19 @@ public class movimientosetararaboss : MonoBehaviour
             vida = vida - damage;
             CDnodamage = currentCDnodamage;
             controlanimaciones.SetTrigger("recibir_golpe");
+            GameObject damaget = Instantiate(damagesufrido, spaun_damage.transform.position, damagesufrido.transform.rotation);
+            damaget.GetComponentInChildren<Text>().text = "-" + damage;
+            damage1.AddForce(new Vector2(0, jumpforce1), ForceMode2D.Impulse);
+            if (this.transform.position == player.transform.position)
+            {
+                damage1.AddForce(new Vector2(-2.5f, jumpforce1), ForceMode2D.Impulse);
+                giro.flipX = false;
+            }
+            if (this.transform.position != player.transform.position)
+            {
+                damage1.AddForce(new Vector2(2.5f, jumpforce1), ForceMode2D.Impulse);
+                giro.flipX = true;
+            }
         }
         if (vida <= 0)
         {
@@ -166,5 +166,34 @@ public class movimientosetararaboss : MonoBehaviour
             controlanimaciones.SetTrigger("muerte");
             player.controlscore(600);
         }
+    }
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (currentCDnodamage <= 0)
+        {
+            if (collision.gameObject.CompareTag("player"))
+            {
+                if (player.ataque1 == true)
+                {
+                    controlvida(player.espadazo);
+                }
+            }
+
+        }
+        if ((player.escudo == true) && (player.currentCDnodamage <= 0))
+        {
+            if (collision.gameObject.CompareTag("player"))
+            {
+                if (ataque1 == true)
+                {
+                    player.controlvida(5);
+                }
+                if (ataque2 == true)
+                {
+                    player.controlvida(15);
+                }
+            }
+        }
+
     }
 }

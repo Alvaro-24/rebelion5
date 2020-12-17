@@ -1,9 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class movimientogeneral : MonoBehaviour
 {
+    public Rigidbody2D damage1;
+    public float jumpforce1;
+    public GameObject spaun_damage;
+    public GameObject damagesufrido;
     public movimientoplayer player;
     public float speed;
     public float distanciaseseguimiento;
@@ -16,7 +21,7 @@ public class movimientogeneral : MonoBehaviour
     public float CDataque2;
     float currentCDataque2;
     Animator controlanimaciones;
-    int vida = 300;
+    int vida = 1500;
     public float CDnodamage;
     float currentCDnodamage = 0;
     public GameObject muertefuego;
@@ -108,15 +113,7 @@ public class movimientogeneral : MonoBehaviour
     {
         if (currentCDnodamage <= 0)
         {
-            if (collision.gameObject.CompareTag("player"))
-            {
-                if (player.ataque1 == true)
-                {
-                    controlvida(player.espadazo);
-                }
-
-
-            }
+           
             if (collision.gameObject.CompareTag("boladefuego"))
             {
                 controlvida(player.fuego);
@@ -138,6 +135,51 @@ public class movimientogeneral : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
+        
+
+
+    }
+    public void controlvida(int damage)
+    {
+        if (vida > 0)
+        {
+            vida = vida - damage;
+            CDnodamage = currentCDnodamage;
+            controlanimaciones.SetTrigger("recibir_golpe");
+            GameObject damaget = Instantiate(damagesufrido, spaun_damage.transform.position, damagesufrido.transform.rotation);
+            damaget.GetComponentInChildren<Text>().text = "-" + damage;
+            damage1.AddForce(new Vector2(0, jumpforce1), ForceMode2D.Impulse);
+            if (this.transform.position == player.transform.position)
+            {
+                damage1.AddForce(new Vector2(-2.5f, jumpforce1), ForceMode2D.Impulse);
+                giro.flipX = false;
+            }
+            if (this.transform.position != player.transform.position)
+            {
+                damage1.AddForce(new Vector2(2.5f, jumpforce1), ForceMode2D.Impulse);
+                giro.flipX = true;
+            }
+        }
+        if (vida <= 0)
+        {
+            Destroy(this.gameObject, 2);
+            controlanimaciones.SetBool("muerto", true);
+            controlanimaciones.SetTrigger("muerte");
+            player.controlscore(2200);
+        }
+    }
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (currentCDnodamage <= 0)
+        {
+            if (collision.gameObject.CompareTag("player"))
+            {
+                if (player.ataque1 == true)
+                {
+                    controlvida(player.espadazo);
+                }
+            }
+        }
         if ((player.escudo == false) && (player.currentCDnodamage <= 0))
         {
             if (collision.gameObject.CompareTag("player"))
@@ -153,22 +195,5 @@ public class movimientogeneral : MonoBehaviour
             }
         }
 
-
-    }
-    public void controlvida(int damage)
-    {
-        if (vida > 0)
-        {
-            vida = vida - damage;
-            CDnodamage = currentCDnodamage;
-            controlanimaciones.SetTrigger("recibir_golpe");
-        }
-        if (vida <= 0)
-        {
-            Destroy(this.gameObject, 2);
-            controlanimaciones.SetBool("muerto", true);
-            controlanimaciones.SetTrigger("muerte");
-            player.controlscore(2200);
-        }
     }
 }

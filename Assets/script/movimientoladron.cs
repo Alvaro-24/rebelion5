@@ -105,20 +105,7 @@ public class movimientoladron : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((player.escudo == false) && (player.currentCDnodamage <= 0))
-        {
-            if (collision.gameObject.CompareTag("player"))
-            {
-                if (ataque1 == true)
-                {
-                    player.controlvida(22);
-                }
-                if (ataque2 == true)
-                {
-                    player.controlscore(18);
-                }
-            }
-        }
+      
         if (currentCDnodamage <= 0)
         {
             if (collision.gameObject.CompareTag("boladefuego"))
@@ -144,6 +131,35 @@ public class movimientoladron : MonoBehaviour
             }
         }
 
+
+    }
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (currentCDnodamage <= 0)
+        {
+            if (collision.gameObject.CompareTag("player"))
+            {
+                if (player.ataque1 == true)
+                {
+                    controlvida(1);
+                }
+            }
+
+        }
+        if ((player.escudo == false) && (player.currentCDnodamage <= 0))
+        {
+            if (collision.gameObject.CompareTag("player"))
+            {
+                if (ataque1 == true)
+                {
+                    player.controlvida(22);
+                }
+                if (ataque2 == true)
+                {
+                    player.controlscore(18);
+                }
+            }
+        }
 
     }
     public void controlvida(int damage)

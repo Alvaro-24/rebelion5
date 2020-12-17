@@ -44,13 +44,7 @@ public class movimientogato : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((player.escudo == false) && (player.currentCDnodamage <= 0))
-        {
-            if (collision.gameObject.CompareTag("player"))
-            {
-                player.controlvida(10);
-            }
-        }
+       
         if (collision.gameObject.CompareTag("boladefuego"))
         {
             Destroy(collision.gameObject);
@@ -71,6 +65,16 @@ public class movimientogato : MonoBehaviour
         if (collision.gameObject.CompareTag("rayo"))
         {
             Destroy(this.gameObject);
+        }
+    }
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("player"))
+        {
+            if (player.ataque1 == true)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }

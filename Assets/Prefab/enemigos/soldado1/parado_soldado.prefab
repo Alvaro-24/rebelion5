@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9078890981803639927}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: spaun_fuego
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,13 +45,13 @@ GameObject:
   - component: {fileID: 5677582191231708915}
   - component: {fileID: 5677582191231708914}
   - component: {fileID: 5382305382512232462}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: parado_soldado
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5677582191231708687
 Transform:
   m_ObjectHideFlags: 0
@@ -152,12 +152,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &5677582191231708915
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -231,4 +231,4 @@ MonoBehaviour:
   muertefuego: {fileID: 2919542261846467091, guid: 114e6e53058a44d47af02df9a5ffdd6a,
     type: 3}
   spawnfuego: {fileID: 3817574178712342053}
-  salto: {fileID: 0}
+  salto: {fileID: 5677582191231708912}
