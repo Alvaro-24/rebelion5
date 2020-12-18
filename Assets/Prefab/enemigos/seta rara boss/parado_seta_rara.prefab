@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &467452367540628932
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4089388880860919926}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4089388880860919926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467452367540628932}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.252, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1836695018964038408}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1085318787910977377
 GameObject:
   m_ObjectHideFlags: 0
@@ -64,6 +94,7 @@ Transform:
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 6527955974718502335}
+  - {fileID: 4089388880860919926}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -222,13 +253,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1efe9b0ea809f4c448f7a5a2e5a3579c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage1: {fileID: 1836695018964038409}
+  jumpforce1: 0.5
+  spaun_damage: {fileID: 467452367540628932}
+  damagesufrido: {fileID: 5744015245512410274, guid: 6b786d6109bb98a4d8c841c72fea8904,
+    type: 3}
   player: {fileID: 0}
-  speed: 0
+  speed: 1.5
   distanciaseseguimiento: 0
   distanciaplayer: 0
-  CDataque1: 0
-  CDataque2: 0
-  CDnodamage: 0
-  muertefuego: {fileID: 0}
-  spawnfuego: {fileID: 0}
-  salto: {fileID: 0}
+  CDataque1: 1.5
+  CDataque2: 2.5
+  CDnodamage: 3
+  muertefuego: {fileID: 2919542261846467091, guid: 114e6e53058a44d47af02df9a5ffdd6a,
+    type: 3}
+  spawnfuego: {fileID: 1085318787910977377}
+  salto: {fileID: 1836695018964038409}

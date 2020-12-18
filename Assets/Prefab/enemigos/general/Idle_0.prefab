@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5614762639682513664
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6868467126587629629}
+  m_Layer: 0
+  m_Name: spawn_fuego
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6868467126587629629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5614762639682513664}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6200308123361357635}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6200308123361357646
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,6 +44,7 @@ GameObject:
   - component: {fileID: 5044928941966835585}
   - component: {fileID: 6200308123361357634}
   - component: {fileID: -4102735492823529139}
+  - component: {fileID: 3365774216373877998}
   m_Layer: 0
   m_Name: Idle_0
   m_TagString: Untagged
@@ -31,7 +62,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4.25, y: 4.25, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6868467126587629629}
+  - {fileID: 2944631403334469190}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -125,7 +158,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6200308123361357634
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -178,3 +211,61 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16529581, y: 0.45264888}
   m_EdgeRadius: 0
+--- !u!114 &3365774216373877998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6200308123361357646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f56f3ded9d4703348a4801593284a324, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage1: {fileID: 5044928941966835585}
+  jumpforce1: 0.5
+  spaun_damage: {fileID: 8028139439224891790}
+  damagesufrido: {fileID: 5744015245512410274, guid: 6b786d6109bb98a4d8c841c72fea8904,
+    type: 3}
+  player: {fileID: 0}
+  speed: 3.5
+  distanciaseseguimiento: 18
+  distanciaplayer: 0
+  CDataque1: 2
+  CDataque2: 3
+  CDnodamage: 4
+  muertefuego: {fileID: 2919542261846467091, guid: 114e6e53058a44d47af02df9a5ffdd6a,
+    type: 3}
+  spawnfuego: {fileID: 5614762639682513664}
+  salto: {fileID: 5044928941966835585}
+--- !u!1 &8028139439224891790
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2944631403334469190}
+  m_Layer: 0
+  m_Name: Spawn_damage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2944631403334469190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8028139439224891790}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6200308123361357635}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

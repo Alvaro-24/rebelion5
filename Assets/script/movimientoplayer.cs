@@ -2,16 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class movimientoplayer : MonoBehaviour
 {
+    public Text textoMonedas;
+    public GameObject barradevida;
+    public float maxHP;
+    public float currentHP;
+    public Image imageToFill;
+    Vector3 offsetBarraVida;
+
     public GameObject rey;
     public GameObject spaun_damage;
     public GameObject damagesufrido;
     SpriteRenderer giro;
     public float speed;
-    Vector2 mousePosition;
+    
     //camaras
     Camera camaraactual;
     GameObject espaumactual;
@@ -100,7 +108,7 @@ public class movimientoplayer : MonoBehaviour
     public bool ataque2 = false;
     public bool ataque3 = false;
     public bool ataque4 = false;
-    bool ataque5 = false;
+   
     #endregion
     public float CDataque1;
     public float CDataque2;
@@ -139,21 +147,27 @@ public class movimientoplayer : MonoBehaviour
     float intentos = 5;
     public float score;
     int monedas;
-    int nivel = 0;
+    public int nivel = 0;
     int pocion = 25;
     public int espadazo;
     public int tajo;
     public int fuego;
     public int relanpago;
-    GameObject daño;
+    
  
 
     // Start is called before the first frame update
     void Start()
     {
+        textoMonedas.text = monedas.ToString();
+
         controlanimaciones = GetComponent<Animator>();
         giro = GetComponent<SpriteRenderer>();
-        
+        offsetBarraVida = barradevida.GetComponent<RectTransform>().anchoredPosition3D;
+        offsetBarraVida.x = 0;
+        offsetBarraVida.z = 0;
+        this.transform.position = respawn1.transform.position;
+        currentHP = maxHP;
 
 
     }
@@ -161,109 +175,115 @@ public class movimientoplayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        camaracontrolerpueblo1();
+        camaracontrolerpueblo2();
+        camaracontrolercamino();
+        camaracontrolerclaro();
+        camaracontrolerbosqueverde();
+
         movimiento();
         if (posicionpueblo1 == true)
         {
             movimiento();
-            camarapueblo1.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXpueblo1, maxXpueblo1), Mathf.Clamp(this.transform.position.y, minYpueblo1, maxYpueblo1), this.transform.rotation.z - cameradistance);
+            camarapueblo1.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXpueblo1, maxXpueblo1), Mathf.Clamp(this.transform.position.y, minYpueblo1, maxYpueblo1), this.transform.position.z - cameradistance);
             camaraactual = camarapueblo1;
             espaumactual = respawn1;
         }
         if (posicionpueblo2 == true)
         {
             movimiento();
-            camarapueblo2.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXpueblo2, maxXpueblo2), Mathf.Clamp(this.transform.position.y, minYpueblo2, maxYpueblo2), this.transform.rotation.z - cameradistance);
+            camarapueblo2.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXpueblo2, maxXpueblo2), Mathf.Clamp(this.transform.position.y, minYpueblo2, maxYpueblo2), this.transform.position.z - cameradistance);
             camaraactual = camarapueblo2;
             espaumactual = respawn2;
         }
         if (posicioncamino == true)
         {
             movimiento();
-            camaracamino.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXcamino, maxXcamino), Mathf.Clamp(this.transform.position.y, minYcamino, maxYcamino), this.transform.rotation.z - cameradistance);
+            camaracamino.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXcamino, maxXcamino), Mathf.Clamp(this.transform.position.y, minYcamino, maxYcamino), this.transform.position.z - cameradistance);
             camaraactual = camaracamino;
             espaumactual = respawn3;
         }
         if (posicionclaro == true)
         {
             movimiento();
-            camaraclaro.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXclaro, maxXClaro), Mathf.Clamp(this.transform.position.y, minYclaro, maxYclaro), this.transform.rotation.z - cameradistance);
+            camaraclaro.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXclaro, maxXClaro), Mathf.Clamp(this.transform.position.y, minYclaro, maxYclaro), this.transform.position.z - cameradistance);
             camaraactual = camaraclaro;
             espaumactual = respawn4;
         }
         if (posicionbosqueverde == true)
         {
             movimiento();
-            camarabosqueverde.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXbosqueverde, maxXbosqueverde), Mathf.Clamp(this.transform.position.y, minYbosqueverde, maxYbosqueverde), this.transform.rotation.z - cameradistance);
+            camarabosqueverde.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXbosqueverde, maxXbosqueverde), Mathf.Clamp(this.transform.position.y, minYbosqueverde, maxYbosqueverde), this.transform.position.z - cameradistance);
             camaraactual = camarabosqueverde;
             espaumactual = respawn5;
         }
         if (posicionbosniebla == true)
         {
             movimiento();
-            camarabosqueniebla.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXbosniebla, maxXbosqueniebla), Mathf.Clamp(this.transform.position.y, minYbosqueniebla, maxYbosniebla), this.transform.rotation.z - cameradistance);
+            camarabosqueniebla.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXbosniebla, maxXbosqueniebla), Mathf.Clamp(this.transform.position.y, minYbosqueniebla, maxYbosniebla), this.transform.position.z - cameradistance);
             camaraactual = camarabosqueniebla;
             espaumactual = respawn6;
         }
         if (posicionbososcuro == true)
         {
             movimiento();
-            camarabosqueoscuro.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXbosqueoscuro, maxXbosqueoscuro), Mathf.Clamp(this.transform.position.y, minYbosqueoscuro, maxYbososcuro), this.transform.rotation.z - cameradistance);
+            camarabosqueoscuro.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXbosqueoscuro, maxXbosqueoscuro), Mathf.Clamp(this.transform.position.y, minYbosqueoscuro, maxYbososcuro), this.transform.position.z - cameradistance);
             camaraactual = camarabosqueoscuro;
             espaumactual = respawn7;
         }
         if (posicioncementerio == true)
         {
             movimiento();
-            camaracementerio.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXcementerio, maxXcementerio), Mathf.Clamp(this.transform.position.y, minYcementerio, maxYcementerio), this.transform.rotation.z - cameradistance);
+            camaracementerio.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXcementerio, maxXcementerio), Mathf.Clamp(this.transform.position.y, minYcementerio, maxYcementerio), this.transform.position.z - cameradistance);
             camaraactual = camaracementerio;
             espaumactual = respawn8;
         }
         if (posicioncripta == true)
         {
             movimiento();
-            camaracripta.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXcripta, maxXcripta), Mathf.Clamp(this.transform.position.y, minYcripta, maxYcripta), this.transform.rotation.z - cameradistance);
+            camaracripta.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXcripta, maxXcripta), Mathf.Clamp(this.transform.position.y, minYcripta, maxYcripta), this.transform.position.z - cameradistance);
             camaraactual = camaracripta;
             espaumactual = respawn9;
         }
         if (posicioncueva == true)
         {
             movimiento();
-            camaracueva.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXcueva, maxXcueva), Mathf.Clamp(this.transform.position.y, minYcueva, maxYcueva), this.transform.rotation.z - cameradistance);
+            camaracueva.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXcueva, maxXcueva), Mathf.Clamp(this.transform.position.y, minYcueva, maxYcueva), this.transform.position.z - cameradistance);
             camaraactual = camaracueva;
             espaumactual = respawn10;
         }
         if (posicionacantilado == true)
         {
             movimiento();
-            camaraacantilado.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXacantilado, maxXacantilado), Mathf.Clamp(this.transform.position.y, minYacantilado, maxYacantilado), this.transform.rotation.z - cameradistance);
+            camaraacantilado.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXacantilado, maxXacantilado), Mathf.Clamp(this.transform.position.y, minYacantilado, maxYacantilado), this.transform.position.z - cameradistance);
             camaraactual = camaraacantilado;
             espaumactual = respawn11;
         }
         if (posicioncaminomontaña == true)
         {
             movimiento();
-            camaracaminomontaña.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXcaminomontaña, maxXcaminomontaña), Mathf.Clamp(this.transform.position.y, minYcaminomontaña, maxYcaminomontaña), this.transform.rotation.z - cameradistance);
+            camaracaminomontaña.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXcaminomontaña, maxXcaminomontaña), Mathf.Clamp(this.transform.position.y, minYcaminomontaña, maxYcaminomontaña), this.transform.position.z - cameradistance);
             camaraactual = camaracaminomontaña;
             espaumactual = respawn12;
         }
         if (posicioncastillofondo == true)
         {
             movimiento();
-            camaracastillofondo.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXcastillofondo, maxXcastillofondo), Mathf.Clamp(this.transform.position.y, minYcastillofondo, maxYcastillofondo), this.transform.rotation.z - cameradistance);
+            camaracastillofondo.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXcastillofondo, maxXcastillofondo), Mathf.Clamp(this.transform.position.y, minYcastillofondo, maxYcastillofondo), this.transform.position.z - cameradistance);
             camaraactual = camaracastillofondo;
             espaumactual = respawn13;
         }
         if (posicioncastillo == true)
         {
             movimiento();
-            camaracastillo.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXcastillo, maxXcastillo), Mathf.Clamp(this.transform.position.y, minYcastillo, maxYcastillo), this.transform.rotation.z - cameradistance);
+            camaracastillo.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXcastillo, maxXcastillo), Mathf.Clamp(this.transform.position.y, minYcastillo, maxYcastillo), this.transform.position.z - cameradistance);
             camaraactual = camaracastillo;
             espaumactual = respawn14;
         }
         if (posicionboss == true)
         {
             movimiento();
-            camaraboss.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXboss, maxXboss), Mathf.Clamp(this.transform.position.y, minYboss, maxYboss), this.transform.rotation.z - cameradistance);
+            camaraboss.transform.position = new Vector3(Mathf.Clamp(this.transform.position.x, minXboss, maxXboss), Mathf.Clamp(this.transform.position.y, minYboss, maxYboss), this.transform.position.z - cameradistance);
             camaraactual = camaraboss;
             espaumactual = respawn15;
         }
@@ -276,25 +296,23 @@ public class movimientoplayer : MonoBehaviour
         {
             escudo = true;
         }
-        if ((Input.GetKeyDown(KeyCode.Alpha2)) && (nivel >= 3) && (nivel <= 5))
+        if ((Input.GetKeyDown(KeyCode.Alpha2)) &&  (nivel >= 5))
         {
             ataque2 = true;
         }
-        if ((Input.GetKeyDown(KeyCode.Alpha3)) && (nivel >= 5) && (nivel <= 10))
+        if ((Input.GetKeyDown(KeyCode.Alpha3)) &&  (nivel >= 10))
         {
             ataque3 = true;
         }
-        if ((Input.GetKeyDown(KeyCode.Alpha4)) && (nivel >= 10) && (nivel <= 15))
+        if ((Input.GetKeyDown(KeyCode.Alpha4)) && (nivel >= 15))
         {
             ataque4 = true;
         }
-        if ((Input.GetKeyDown(KeyCode.Alpha5)) && (nivel >= 15) && (nivel <= 20))
-        {
-            ataque5 = true;
-        }
+       
         if (nivel >= 20)
         {
             vida = 300;
+            maxHP = 300;
             rey.SetActive(true);
             rey.transform.SetParent(null);
             this.gameObject.SetActive(false);
@@ -303,14 +321,17 @@ public class movimientoplayer : MonoBehaviour
         else if (nivel >= 15)
         {
             vida = 250;
+            maxHP = 250;
         }
         else if (nivel >= 10)
         {
             vida = 200;
+            maxHP = 200;
         }
         else if (nivel >= 5)
         {
             nivel = 150;
+            maxHP = 150;
         }
         if (currentCDescudo > 0)
         {
@@ -361,10 +382,11 @@ public class movimientoplayer : MonoBehaviour
         {
             currentCDnodamage -= Time.deltaTime;
         }
+        imageToFill.fillAmount = vida / maxHP;
 
 
     }
-    private void OntriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("pared"))
         {
@@ -390,11 +412,7 @@ public class movimientoplayer : MonoBehaviour
             sumarvida(pocion);
             Destroy(collision.gameObject);
         }
-        if (collision.gameObject.CompareTag("moneda"))
-        {
-            sumamoneda(1);
-            Destroy(collision.gameObject);
-        }
+       
         if (collision.gameObject.CompareTag("cortefuego")) 
         {
             if ((escudo == false) && (currentCDnodamage <= 0))
@@ -449,6 +467,10 @@ public class movimientoplayer : MonoBehaviour
     public void controldintentosmenos(int menosintentos)
     {
         intentos = intentos - menosintentos;
+        if (intentos <= 0)
+        {
+            SceneManager.LoadScene(2);
+        }
     }
     public void sumarvida(int vidarecogida)
     {
@@ -457,10 +479,16 @@ public class movimientoplayer : MonoBehaviour
     public void controlscore(int scoremas)
     {
         score = score + scoremas;
+        if (score > 1500)
+        {
+            cintrolniveles(1);
+            score = 0;
+        }
     }
     public void sumamoneda(int monedarecojida)
     {
         monedas = monedas + monedarecojida;
+        textoMonedas.text = monedas.ToString();
     }
     public void cintrolniveles(int nivelmas)
     {
@@ -469,37 +497,57 @@ public class movimientoplayer : MonoBehaviour
     // control de camaras
     public void camaracontrolerpueblo1()
     {
-        posicionpueblo1 = true;
-        camarapueblo1.gameObject.SetActive(true);
-        this.transform.position = new Vector2(Xpueblo1, Ypueblo2);
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            posicionpueblo1 = true;
+            camarapueblo1.gameObject.SetActive(true);
+            this.transform.position = new Vector2(Xpueblo1, Ypueblo2);
+        }
+        
     }
     public void camaracontrolerpueblo2()
     {
-        posicionpueblo1 = false;
-        camarapueblo1.gameObject.SetActive(false);
-        camarapueblo2.gameObject.SetActive(true);
-        this.transform.position = new Vector2(Xpueblo2, Ypueblo2);
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            posicionpueblo1 = false;
+            posicionpueblo2 = true;
+            camarapueblo1.gameObject.SetActive(false);
+            camarapueblo2.gameObject.SetActive(true);
+            this.transform.position = new Vector2(Xpueblo2, Ypueblo2);
+        }
     }
     public void camaracontrolercamino()
     {
-        posicionpueblo2 = false;
-        camarapueblo2.gameObject.SetActive(false);
-        camaracamino.gameObject.SetActive(true);
-        this.transform.position = new Vector2(Xcamino, Ycamino);
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            posicionpueblo2 = false;
+            posicioncamino = true;
+            camarapueblo2.gameObject.SetActive(false);
+            camaracamino.gameObject.SetActive(true);
+            this.transform.position = new Vector2(Xcamino, Ycamino);
+        }
     }
     public void camaracontrolerclaro()
     {
-        posicioncamino = false;
-        camaracamino.gameObject.SetActive(false);
-        camaraclaro.gameObject.SetActive(true);
-        this.transform.position = new Vector2(Xclaro, Yclaro);
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            posicioncamino = false;
+            posicionclaro = true;
+            camaracamino.gameObject.SetActive(false);
+            camaraclaro.gameObject.SetActive(true);
+            this.transform.position = new Vector2(Xclaro, Yclaro);
+        }
     }
     public void camaracontrolerbosqueverde()
     {
-        posicionclaro = false;
-        camaraclaro.gameObject.SetActive(false);
-        camarabosqueverde.gameObject.SetActive(true);
-        this.transform.position = new Vector2(Xbosqueverde, Ybosqueverde);
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            posicionclaro = false;
+            posicionbosqueverde = true;
+            camaraclaro.gameObject.SetActive(false);
+            camarabosqueverde.gameObject.SetActive(true);
+            this.transform.position = new Vector2(Xbosqueverde, Ybosqueverde);
+        }
     }
     public void camaracontrolerbosqueniebla()
     {
@@ -608,43 +656,42 @@ public class movimientoplayer : MonoBehaviour
             controlanimaciones.SetTrigger("ataque1");
             ataque1 = true;
             CDataque1 = currentCDataque1;
-        }
-        if (escudo == true)
-        {
-            controlanimaciones.SetTrigger("recibir_golpe");
-            Instantiate(escudos, spawnescudo.transform.position, escudos.transform.rotation);
-            CDescudo = currentCDescudo;
-        }
-        if (ataque2 == true)
-        {
-            controlanimaciones.SetTrigger("ataque1");
-            Instantiate(atquecircular, spawnatquecircular.transform.position, atquecircular.transform.rotation);
-            CDataque2 = currentCDataque2;
-        }
-        if (ataque3 == true)
-        {
-            controlanimaciones.SetTrigger("ataque2");
-            Instantiate(boladefuego, spawnboladefuego.transform.position, boladefuego.transform.rotation);
-            CDataque3 = currentCDataque3;
-        }
-        if (ataque4 == true)
-        {
-            Vector3 mouse = Input.mousePosition;
-            Ray castPoint = camaraactual.ScreenPointToRay(mouse);
-            RaycastHit hit;
-            if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+            if (escudo == true)
             {
-                if (hit.transform.CompareTag("plataforma"))
+                controlanimaciones.SetTrigger("recibir_golpe");
+                Instantiate(escudos, spawnescudo.transform.position, escudos.transform.rotation);
+                currentCDescudo = CDescudo;
+                escudo = false;
+            }
+            if (ataque2 == true)
+            {
+                controlanimaciones.SetTrigger("ataque1");
+                Instantiate(atquecircular, spawnatquecircular.transform.position, atquecircular.transform.rotation);
+                CDataque2 = currentCDataque2;
+            }
+            if (ataque3 == true)
+            {
+                controlanimaciones.SetTrigger("ataque2");
+                Instantiate(boladefuego, spawnboladefuego.transform.position, boladefuego.transform.rotation);
+                CDataque3 = currentCDataque3;
+            }
+            if (ataque4 == true)
+            {
+                Vector3 mouse = Input.mousePosition;
+                Ray castPoint = camaraactual.ScreenPointToRay(mouse);
+                RaycastHit hit;
+                if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
                 {
-                    Instantiate(rayo, hit.point, rayo.transform.rotation);
-                    CDataque4 = currentCDataque4;
+                    if (hit.transform.CompareTag("plataforma"))
+                    {
+                        Instantiate(rayo, hit.point, rayo.transform.rotation);
+                        CDataque4 = currentCDataque4;
+                    }
                 }
             }
         }
-        if (ataque5 == true)
-        {
-
-        }
+       
+       
         if (salto.velocity.y > 0.2f)
         {
             controlanimaciones.SetBool("salto", true);

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 423603364528355243}
   - component: {fileID: 423603364528355242}
   - component: {fileID: 423603364528355241}
+  - component: {fileID: 5911176059557460506}
   m_Layer: 0
   m_Name: Idle_0
   m_TagString: Untagged
@@ -30,8 +31,12 @@ Transform:
   m_GameObject: {fileID: 423603364528355245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.13, y: 0.91, z: 0}
-  m_LocalScale: {x: 1.8, y: 1.8, z: 0}
-  m_Children: []
+  m_LocalScale: {x: 1.7, y: 1.7, z: 0}
+  m_Children:
+  - {fileID: 6859777691908724065}
+  - {fileID: 8285757504062704367}
+  - {fileID: 6472824877412959753}
+  - {fileID: 2236298183625658943}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -178,3 +183,293 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5911176059557460506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423603364528355245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac5fcfacbb9d38488bf70309932343c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spaun_damage: {fileID: 7067512886513036563}
+  damagesufrido: {fileID: 5744015245512410274, guid: 6b786d6109bb98a4d8c841c72fea8904,
+    type: 3}
+  speed: 2.5
+  camarapueblo1: {fileID: 0}
+  respawn1: {fileID: 0}
+  camarapueblo2: {fileID: 0}
+  respawn2: {fileID: 0}
+  camaracamino: {fileID: 0}
+  respawn3: {fileID: 0}
+  camaraclaro: {fileID: 0}
+  respawn4: {fileID: 0}
+  camarabosqueverde: {fileID: 0}
+  respawn5: {fileID: 0}
+  camarabosqueniebla: {fileID: 0}
+  respawn6: {fileID: 0}
+  camarabosqueoscuro: {fileID: 0}
+  respawn7: {fileID: 0}
+  camaracementerio: {fileID: 0}
+  respawn8: {fileID: 0}
+  camaracripta: {fileID: 0}
+  respawn9: {fileID: 0}
+  camaracueva: {fileID: 0}
+  respawn10: {fileID: 0}
+  camaraacantilado: {fileID: 0}
+  respawn11: {fileID: 0}
+  "camaracaminomonta\xF1a": {fileID: 0}
+  respawn12: {fileID: 0}
+  camaracastillofondo: {fileID: 0}
+  respawn13: {fileID: 0}
+  camaracastillo: {fileID: 0}
+  respawn14: {fileID: 0}
+  camaraboss: {fileID: 0}
+  respawn15: {fileID: 0}
+  maxXpueblo1: 0
+  maxYpueblo1: 0
+  minXpueblo1: 0
+  minYpueblo1: 0
+  Xpueblo1: 0
+  Ypueblo1: 0
+  maxXpueblo2: 0
+  maxYpueblo2: 0
+  minXpueblo2: 0
+  minYpueblo2: 0
+  Xpueblo2: 0
+  Ypueblo2: 0
+  maxXcamino: 0
+  minXcamino: 0
+  maxYcamino: 0
+  minYcamino: 0
+  Xcamino: 0
+  Ycamino: 0
+  maxXClaro: 0
+  minXclaro: 0
+  maxYclaro: 0
+  minYclaro: 0
+  Xclaro: 0
+  Yclaro: 0
+  maxXbosqueverde: 0
+  minXbosqueverde: 0
+  maxYbosqueverde: 0
+  minYbosqueverde: 0
+  Xbosqueverde: 0
+  Ybosqueverde: 0
+  maxXbosqueniebla: 0
+  minXbosniebla: 0
+  maxYbosniebla: 0
+  minYbosqueniebla: 0
+  Xbosqueniebla: 0
+  Ybosqueniebla: 0
+  maxXbosqueoscuro: 0
+  minXbosqueoscuro: 0
+  maxYbososcuro: 0
+  minYbosqueoscuro: 0
+  Xbosqueoscuro: 0
+  Ybosqueoscuro: 0
+  maxXcementerio: 0
+  minXcementerio: 0
+  maxYcementerio: 0
+  minYcementerio: 0
+  Xcementerio: 0
+  Ycementerio: 0
+  maxXcripta: 0
+  minXcripta: 0
+  maxYcripta: 0
+  minYcripta: 0
+  Xcripta: 0
+  Ycripta: 0
+  maxXcueva: 0
+  minXcueva: 0
+  maxYcueva: 0
+  minYcueva: 0
+  Xcueva: 0
+  Ycueva: 0
+  maxXacantilado: 0
+  minXacantilado: 0
+  maxYacantilado: 0
+  minYacantilado: 0
+  Xacantilado: 0
+  Yacantilado: 0
+  "maxXcaminomonta\xF1a": 0
+  "minXcaminomonta\xF1a": 0
+  "maxYcaminomonta\xF1a": 0
+  "minYcaminomonta\xF1a": 0
+  "Xcaminomonta\xF1a": 0
+  "Ycaminomonta\xF1a": 0
+  maxXcastillofondo: 0
+  minXcastillofondo: 0
+  maxYcastillofondo: 0
+  minYcastillofondo: 0
+  Xcastillofondo: 0
+  Ycastillofondo: 0
+  maxXcastillo: 0
+  minXcastillo: 0
+  maxYcastillo: 0
+  minYcastillo: 0
+  Xcastillo: 0
+  Ycastillo: 0
+  maxXboss: 0
+  minXboss: 0
+  maxYboss: 0
+  minYboss: 0
+  Xboss: 0
+  Yboss: 0
+  escudo: 0
+  ataque1: 0
+  ataque2: 0
+  ataque3: 0
+  ataque4: 0
+  CDataque1: 1.5
+  CDataque2: 3
+  CDataque3: 20
+  CDataque4: 20
+  CDescudo: 10
+  CDnodamage: 3
+  currentCDnodamage: 0
+  escudos: {fileID: 1556057628337689732, guid: 72a1bc923dc503f42b177c3e121b4a17, type: 3}
+  spawnescudo: {fileID: 7741183529351364604}
+  boladefuego: {fileID: 7574085528612297947, guid: 5d5ce54f0f514a74f9adab8751c5b2f5,
+    type: 3}
+  spawnboladefuego: {fileID: 5620940389094275555}
+  atquecircular: {fileID: 6664287479548322284, guid: 5fec95f57daba4f4ea44531ccd03c5ae,
+    type: 3}
+  spawnatquecircular: {fileID: 1643948473849547381}
+  rayo: {fileID: 827622789771066488, guid: 39923dce572406449a4af6909a933c84, type: 3}
+  CDrevivir: 2
+  currentCDrevivir: 0
+  jumpforce: 3
+  jumpforce1: 0.5
+  salto: {fileID: 423603364528355241}
+  damage1: {fileID: 423603364528355241}
+  cameradistance: 0
+  vida: 300
+  score: 0
+  espadazo: 125
+  tajo: 100
+  fuego: 175
+  relanpago: 50
+--- !u!1 &1643948473849547381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6472824877412959753}
+  m_Layer: 0
+  m_Name: spaun_ataque_circular (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6472824877412959753
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643948473849547381}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.4, y: -0.25, z: 0}
+  m_LocalScale: {x: 0.5555556, y: 0.5555556, z: 0}
+  m_Children: []
+  m_Father: {fileID: 423603364528355240}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5620940389094275555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8285757504062704367}
+  m_Layer: 0
+  m_Name: spaun_bola_fuego (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8285757504062704367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5620940389094275555}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.496, y: -0.228, z: 0}
+  m_LocalScale: {x: 0.5555556, y: 0.5555556, z: 0}
+  m_Children: []
+  m_Father: {fileID: 423603364528355240}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7067512886513036563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2236298183625658943}
+  m_Layer: 0
+  m_Name: Spawn_damage (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2236298183625658943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7067512886513036563}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.074, y: 0.062, z: 0}
+  m_LocalScale: {x: 1.1111112, y: 1.1111112, z: 0}
+  m_Children: []
+  m_Father: {fileID: 423603364528355240}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7741183529351364604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6859777691908724065}
+  m_Layer: 0
+  m_Name: spawn_scudo (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6859777691908724065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7741183529351364604}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.04, y: -0.25, z: 0}
+  m_LocalScale: {x: 0.5555556, y: 0.5555556, z: 0}
+  m_Children: []
+  m_Father: {fileID: 423603364528355240}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

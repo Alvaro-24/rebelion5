@@ -209,7 +209,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &12256830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,10 +226,10 @@ MonoBehaviour:
   speed: 1
   distanciaseseguimiento: 18
   distanciaplayer: 0
-  CDataque1: 0
-  CDatque2: 0
-  CDnodamage: 0
+  CDataque1: 1.5
+  CDatque2: 2.5
+  CDnodamage: 3
   muertefuego: {fileID: 2919542261846467091, guid: 114e6e53058a44d47af02df9a5ffdd6a,
     type: 3}
   spawnfuego: {fileID: 0}
-  salto: {fileID: 0}
+  salto: {fileID: 8099925231693231718}

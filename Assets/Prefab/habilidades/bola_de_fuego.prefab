@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 7574085528612297921}
   - component: {fileID: 7574085528612297950}
   - component: {fileID: 7574085528612297951}
+  - component: {fileID: 2176416628878844819}
+  - component: {fileID: -6096803702907165514}
   m_Layer: 0
   m_Name: bola_de_fuego
   m_TagString: Untagged
@@ -177,3 +179,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.37714148, y: 0.22197229}
   m_EdgeRadius: 0
+--- !u!114 &2176416628878844819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7574085528612297947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a779f9a48bb43c49a77769e87573892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0, z: 0}
+  speed: 5
+--- !u!114 &-6096803702907165514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7574085528612297947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a779f9a48bb43c49a77769e87573892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0, y: 0, z: 0}
+  speed: 6

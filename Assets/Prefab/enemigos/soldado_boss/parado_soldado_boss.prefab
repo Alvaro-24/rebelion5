@@ -254,7 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage1: {fileID: 5677582191231708912}
-  jumpforce1: 0
+  jumpforce1: 0.5
   spaun_damage: {fileID: 738700164}
   damagesufrido: {fileID: 5744015245512410274, guid: 6b786d6109bb98a4d8c841c72fea8904,
     type: 3}

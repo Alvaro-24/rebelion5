@@ -156,7 +156,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &906765449856984735
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -227,4 +227,4 @@ MonoBehaviour:
   muertefuego: {fileID: 2919542261846467091, guid: 114e6e53058a44d47af02df9a5ffdd6a,
     type: 3}
   spawnfuego: {fileID: 1045891134671734788}
-  salto: {fileID: 0}
+  salto: {fileID: 8497029165786205872}

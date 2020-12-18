@@ -57,6 +57,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\script\BOTONES.cs" />
+    <Compile Include="Assets\script\gameover.cs" />
+    <Compile Include="Assets\script\inicio.cs" />
+    <Compile Include="Assets\script\monedaaaaaa.cs" />
     <Compile Include="Assets\script\movimientoboss.cs" />
     <Compile Include="Assets\script\movimientodragon.cs" />
     <Compile Include="Assets\script\movimientoesqueleto1.cs" />
@@ -74,6 +78,8 @@
     <Compile Include="Assets\script\movimientosetararaboss.cs" />
     <Compile Include="Assets\script\movimientosoldado.cs" />
     <Compile Include="Assets\script\movimientosoldadoboss.cs" />
+    <Compile Include="Assets\script\plebellos.cs" />
+    <Compile Include="Assets\script\proyectil.cs" />
     <Compile Include="Assets\script\spawenemigos.cs" />
     <None Include="Assets\Sprites\gothicvania-cemetery-files\public-license.txt" />
     <None Include="Assets\Sprites\perro fantasma\public-license.txt" />

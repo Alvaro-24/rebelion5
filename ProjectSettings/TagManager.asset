@@ -9,6 +9,11 @@ TagManager:
   - rayo
   - corte
   - boladefuego
+  - pinchos
+  - pared
+  - moneda
+  - puente
+  - pocion
   layers:
   - Default
   - TransparentFX
